@@ -41,7 +41,7 @@ def load_llm():
     # loading the LLM model
     # This open source model can be downloaded from here
     # Their are multiple models available just replace it in place of model and try it.
-    model_llama = pickle.load(open(data, 'rb'))
+    model_llama = pickle.load(model_id)
     
     llm = CTransformers(
         model=model_llama,
