@@ -45,7 +45,7 @@ def load_llm():
     # model_url = hf_hub_url(model_username, model_filename)
     
     # Construir la URL del modelo utilizando la ruta del archivo en GitHub
-    model_url = f"https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML/raw/main/llama-2-7b-chat.ggmlv3.q4_0.bin"
+    model_url = f"https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML/raw/main/llama-2-7b-chat.ggmlv3.q4_0"
 
     # Cargar el modelo utilizando la URL
     model_llm = GPT2LMHeadModel.from_pretrained(model_url)
