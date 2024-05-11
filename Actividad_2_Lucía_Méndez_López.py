@@ -60,8 +60,8 @@ txt_input = col1.text_area('Enter your text', '', height=200)
 
 # Form to accept user's text input for summarization
 result = []
-with st.form('summarize_form', clear_on_submit=True):
-    submitted = st.form_submit_button('Submit')
+with st.sidebar.form('summarize_form', clear_on_submit=True):
+    submitted = st.sidebar..form_submit_button('Submit')
     #if submitted and openai_api_key.startswith('sk-'):
     if submitted:
         with st.sidebar.spinner('Calculating...'):
