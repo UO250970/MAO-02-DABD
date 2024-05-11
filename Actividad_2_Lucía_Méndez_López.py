@@ -11,6 +11,9 @@ from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 
 from transformers import AutoModelForCausalLM
 
+from huggingface_hub import hf_hub_url
+from transformers import GPT2LMHeadModel
+
 from huggingface_hub import ModelHubMixin
 
 # this function is responsible for splitting the data into smaller chunks and convert the data in document format
