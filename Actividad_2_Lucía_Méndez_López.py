@@ -9,8 +9,9 @@ from langchain.llms import CTransformers
 from langchain.callbacks.manager import CallbackManager
 from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 
+from transformers import AutoModelForCausalLM
 
-from huggingface_hub import ModelHubMixin
+# from huggingface_hub import ModelHubMixin
 
 # this function is responsible for splitting the data into smaller chunks and convert the data in document format
 def chunks_and_document(txt):
@@ -24,7 +25,8 @@ def chunks_and_document(txt):
 # Esta función carga el modelo usando el ID del modelo de la biblioteca huggingface
 def load_llm(model_id):
     # Cargamos el modelo desde la biblioteca Hugging Face
-    model_llama = ModelHubMixin.from_pretrained(model_id)
+    model_llama = AutoModelForCausalLM.from_pretrained(model_id)
+    # model_llama = ModelHubMixin.from_pretrained(model_id)
     
     # Instanciamos el modelo LLM
     llm = CTransformers(
