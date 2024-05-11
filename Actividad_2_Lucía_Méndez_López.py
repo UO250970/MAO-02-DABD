@@ -10,6 +10,7 @@ from langchain.callbacks.manager import CallbackManager
 from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 
 
+from huggingface_hub import ModelHubMixin, RepositoryMixin, get_repo_download_url
 
 # this function is responsible for splitting the data into smaller chunks and convert the data in document format
 def chunks_and_document(txt):
@@ -21,7 +22,6 @@ def chunks_and_document(txt):
     return docs
 
 import requests
-
 
 def query(payload, model_id, api_token):
 	headers = {"Authorization": f"Bearer {api_token}"}
@@ -50,7 +50,26 @@ def load_llm():
         temperature = 0.5)
         
     return llm
- 
+
+
+# Esta función carga el modelo usando el ID del modelo de la biblioteca huggingface
+def load_llm(model_id):
+    # Cargamos el modelo desde la biblioteca Hugging Face
+    model_llama = ModelHubMixin.from_pretrained(model_id)
+    
+    # Instanciamos el modelo LLM
+    llm = CTransformers(
+        model=model_llama,
+        model_type="llama",
+        max_new_tokens=512,
+        temperature=0.5)
+        
+    return llm
+
+# Llamamos a la función load_llm con el ID del modelo
+llm_model_id = "Soondra/llama-model"  # Reemplaza esto con el ID de tu modelo
+llm = load_llm(llm_model_id)
+
 # this functions is used for applying the llm model with our document 
 def chains_and_response(docs):
     
