@@ -75,7 +75,7 @@ def load_llm(model_name):
     return model
     
 # model_path = "saved_models/llama-model.gzip"
-model_name = "TheBloke/Llama-2-7B-Chat-GGML/llama-2-7b-chat.ggmlv3.q4_1.bin"
+model_name = "https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML/tree/main/llama-2-7b-chat.ggmlv3.q4_1.bin"
 
 # this functions is used for applying the llm model with our document 
 def chains_and_response(docs):
