@@ -1,5 +1,5 @@
 import streamlit as st
-import pickle
+# import pickle
 # import timm
 
 from langchain.text_splitter import CharacterTextSplitter
@@ -10,7 +10,7 @@ from langchain.llms import CTransformers
 from langchain.callbacks.manager import CallbackManager
 from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 
-# from transformers import AutoModelForCausalLM
+from transformers import AutoModelForCausalLM
 
 # from huggingface_hub import hf_hub_url
 # from transformers import GPT2LMHeadModel
@@ -68,17 +68,17 @@ def chunks_and_document(txt):
 # model_username = "TheBloke/Llama-2-7B-Chat-GGML"
 # model_filename = "llama-2-7b-chat.ggmlv3.q4_0.bin"
 
-def load_llm(model_path):
-    with open(model_path, 'rb') as f:
-        model = pickle.load(f)
+def load_llm(model_name):
+    model = AutoModelForCausalLM.from_pretrained(model_name)
     return model
     
 model_path = "saved_models/llama-model.gzip"
+model_name = "TheBloke/Llama-2-7B-Chat-GGML"
 
 # this functions is used for applying the llm model with our document 
 def chains_and_response(docs):
     
-    llm = load_llm(model_path)
+    llm = load_llm(model_name)
     chain = load_summarize_chain(llm,chain_type='map_reduce')
     
     return chain.run(docs)
