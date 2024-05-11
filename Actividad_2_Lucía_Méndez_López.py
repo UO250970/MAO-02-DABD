@@ -10,7 +10,7 @@ from langchain.callbacks.manager import CallbackManager
 from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 
 
-from huggingface_hub import ModelHubMixin, RepositoryMixin, get_repo_download_url
+from huggingface_hub import ModelHubMixin, get_repo_download_url
 
 # this function is responsible for splitting the data into smaller chunks and convert the data in document format
 def chunks_and_document(txt):
