@@ -1,6 +1,7 @@
 import streamlit as st
 # import pickle
 # import timm
+import torch
 
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.docstore.document import Document
@@ -70,10 +71,11 @@ def chunks_and_document(txt):
 
 def load_llm(model_name):
     model = AutoModelForCausalLM.from_pretrained(model_name)
+    model = torch.load(model_path)
     return model
     
-model_path = "saved_models/llama-model.gzip"
-model_name = "TheBloke/Llama-2-7B-Chat-GGML"
+# model_path = "saved_models/llama-model.gzip"
+model_name = "TheBloke/Llama-2-7B-Chat-GGML/llama-2-7b-chat.ggmlv3.q4_1.bin"
 
 # this functions is used for applying the llm model with our document 
 def chains_and_response(docs):
