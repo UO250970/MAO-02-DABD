@@ -37,13 +37,21 @@ def load_llm(model_id):
         
     return llm
 
+def load_llm(model_id, model_type):
+    # Cargar el modelo LLM desde la biblioteca de Hugging Face
+    model_llama = AutoModelForCausalLM.from_pretrained(
+        model_id,
+        model_type=model_type
+    )
+    return model_llama
+
 #llm_model_id = "Soondra/llama-model.bin"  
 llm_model_id = "TheBloke/Llama-2-7B-Chat-GGML"
 
 # this functions is used for applying the llm model with our document 
 def chains_and_response(docs):
     
-    llm = load_llm(llm_model_id)
+    llm = load_llm(llm_model_id, "llama")
     chain = load_summarize_chain(llm,chain_type='map_reduce')
     
     return chain.run(docs)
