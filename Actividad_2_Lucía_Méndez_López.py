@@ -60,10 +60,12 @@ col1, col2 = st.columns(2)
 col1.subheader('Introduce tu texto aquí')
 txt_input = col1.text_area('', '', height=300)
 
+col2.subheader('Tu texto resumido aquí')
+
 # Form to accept user's text input for summarization
 result = []
 with st.form('summarize_form', clear_on_submit=True):
-    submitted = st.sidebar.form_submit_button('Submit')
+    submitted = st.form_submit_button('Submit')
     #if submitted and openai_api_key.startswith('sk-'):
     if submitted:
         with st.sidebar.spinner('Calculating...'):
@@ -72,5 +74,5 @@ with st.form('summarize_form', clear_on_submit=True):
             result.append(response)
 
 if len(result):
-    col2.title('📝✅ Summarization Result')
+    col2.subheader('Tu texto resumido aquí')
     col2.info(response)
