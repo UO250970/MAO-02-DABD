@@ -1,9 +1,6 @@
-#import streamlit as st
-
-
-#st.title('Técnicas de desarrollo de aplicaciones de Big Data')
-
 import streamlit as st
+import pickle
+
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.docstore.document import Document
 from langchain.chains.summarize import load_summarize_chain
@@ -31,6 +28,8 @@ def load_llm():
     # loading the LLM model
     # This open source model can be downloaded from here
     # Their are multiple models available just replace it in place of model and try it.
+    model = pickle.load(open(f'{working_dir}/saved_models/diabetes_model.sav', 'rb'))
+    
     llm = CTransformers(
         model=r"C:\Users\venky\OneDrive\Desktop\Learnings\Projects\Llama-2-Streamlit-Chatbot\llama-2-7b-chat.ggmlv3.q2_K.bin",
         model_type="llama",
