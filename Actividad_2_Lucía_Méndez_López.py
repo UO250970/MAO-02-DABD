@@ -78,7 +78,7 @@ model_path = "saved_models\llama-model.bin"
 # this functions is used for applying the llm model with our document 
 def chains_and_response(docs):
     
-    llm = load_llm()
+    llm = load_llm(model_path)
     chain = load_summarize_chain(llm,chain_type='map_reduce')
     
     return chain.run(docs)
