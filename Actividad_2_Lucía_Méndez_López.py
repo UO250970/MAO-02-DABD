@@ -52,7 +52,7 @@ llm_model_id = "TheBloke/Llama-2-7B-Chat-GGML"
 # this functions is used for applying the llm model with our document 
 def chains_and_response(docs):
     
-    llm = load_llm(llm_model_id, "llama")
+    llm = load_llm(llm_model_id)
     chain = load_summarize_chain(llm,chain_type='map_reduce')
     
     return chain.run(docs)
