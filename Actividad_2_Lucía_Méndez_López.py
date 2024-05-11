@@ -48,8 +48,11 @@ def chains_and_response(docs):
     return chain.run(docs)
     
 # Page title
-st.set_page_config(page_title='🦜🔗 Técnicas de desarrollo de aplicaciones de Big Data')
-st.title('🦜🔗 Text Summarization App')
+st.set_page_config(page_title='🧩 Técnicas de desarrollo de aplicaciones de Big Data')
+st.title('Técnicas de desarrollo de aplicaciones de Big Data')
+st.markdown('*Lucía Méndez López - lmendez31786@alumnos.uemc.es')
+
+st.header('🧩 Applicación para resumen de textos 🧩')
 
 # Text input
 txt_input = st.text_area('Enter your text', '', height=200)
