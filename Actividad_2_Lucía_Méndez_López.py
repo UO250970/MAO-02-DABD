@@ -3,8 +3,6 @@
 
 #st.title('Técnicas de desarrollo de aplicaciones de Big Data')
 
-pip install streamlit
-
 import streamlit as st
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.docstore.document import Document
