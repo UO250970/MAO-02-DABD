@@ -26,8 +26,7 @@ def chunks_and_document(txt):
 def load_llm(model_id):
     # Cargamos el modelo desde la biblioteca Hugging Face
     model_llama = AutoModelForCausalLM.from_pretrained(
-        model_id,
-        auth_token='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'
+        model_id
     )    
     # Instanciamos el modelo LLM
     llm = CTransformers(
