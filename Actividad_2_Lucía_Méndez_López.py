@@ -73,7 +73,7 @@ def load_llm(model_path):
         model = pickle.load(f)
     return model
     
-model_path = "saved_models\llama-model.bin"
+model_path = "saved_models/llama-model.bin"
 
 # this functions is used for applying the llm model with our document 
 def chains_and_response(docs):
