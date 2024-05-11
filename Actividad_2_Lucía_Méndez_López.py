@@ -54,8 +54,10 @@ st.sidebar.markdown('*Lucía Méndez López - lmendez31786@alumnos.uemc.es*')
 
 st.header('🧩 Applicación para resumen de textos 🧩')
 
+col1, col2 = st.columns(2)
+
 # Text input
-txt_input = st.text_area('Enter your text', '', height=200)
+txt_input = col1.text_area('Enter your text', '', height=200)
 
 # Form to accept user's text input for summarization
 result = []
@@ -69,5 +71,5 @@ with st.form('summarize_form', clear_on_submit=True):
             result.append(response)
 
 if len(result):
-    st.title('📝✅ Summarization Result')
-    st.info(response)
+    col2.title('📝✅ Summarization Result')
+    col2.info(response)
