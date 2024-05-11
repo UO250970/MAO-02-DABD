@@ -67,7 +67,7 @@ model_filename = "llama-2-7b-chat.ggmlv3.q4_0.bin"
 # this functions is used for applying the llm model with our document 
 def chains_and_response(docs):
     
-    llm = load_llm(model_username, model_filename)
+    llm = load_llm()
     chain = load_summarize_chain(llm,chain_type='map_reduce')
     
     return chain.run(docs)
