@@ -60,11 +60,11 @@ txt_input = col1.text_area('Enter your text', '', height=200)
 
 # Form to accept user's text input for summarization
 result = []
-with col1.form('summarize_form', clear_on_submit=True):
-    submitted = col1.form_submit_button('Submit')
+with st.form('summarize_form', clear_on_submit=True):
+    submitted = st.form_submit_button('Submit')
     #if submitted and openai_api_key.startswith('sk-'):
     if submitted:
-        with col1.spinner('Calculating...'):
+        with st.sidebar.spinner('Calculating...'):
             docs = chunks_and_document(txt_input)
             response = chains_and_response(docs)
             result.append(response)
