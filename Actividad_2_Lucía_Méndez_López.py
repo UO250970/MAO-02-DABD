@@ -38,7 +38,7 @@ def load_llm(model_id):
         
     return llm
 
-llm_model_id = "Soondra/llama-model"  
+llm_model_id = "Soondra/llama-model.bin"  
 
 # this functions is used for applying the llm model with our document 
 def chains_and_response(docs):
