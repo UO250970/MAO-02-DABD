@@ -50,7 +50,7 @@ def chains_and_response(docs):
 # Page title
 st.set_page_config(page_title='🧩 Técnicas de desarrollo de aplicaciones de Big Data')
 st.title('Técnicas de desarrollo de aplicaciones de Big Data')
-st.markdown('*Lucía Méndez López - lmendez31786@alumnos.uemc.es')
+st.markdown('*Lucía Méndez López - lmendez31786@alumnos.uemc.es*')
 
 st.header('🧩 Applicación para resumen de textos 🧩')
 
