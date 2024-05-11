@@ -71,7 +71,7 @@ def chunks_and_document(txt):
 
 def load_llm(model_name):
     # model = AutoModelForCausalLM.from_pretrained(model_name)
-    model = torch.load(model_path)
+    model = torch.load(model_name)
     return model
     
 # model_path = "saved_models/llama-model.gzip"
