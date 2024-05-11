@@ -71,12 +71,13 @@ def chunks_and_document(txt):
 
 def load_llm(model_name):
     # model = AutoModelForCausalLM.from_pretrained(model_name)
-    model = torch.load(model_name)
+    # model = torch.load(model_name)
+    model = torch.hub.load('huggingface/pytorch-transformers', model_name)
     return model
     
 # model_path = "saved_models/llama-model.gzip"
-model_name = "https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML/tree/main/llama-2-7b-chat.ggmlv3.q4_1.bin"
-
+# model_name = "https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML/tree/main/llama-2-7b-chat.ggmlv3.q4_1.bin"
+model_name = "TheBloke/Llama-2-7B-Chat-GGML"
 # this functions is used for applying the llm model with our document 
 def chains_and_response(docs):
     
