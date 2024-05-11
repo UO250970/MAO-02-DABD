@@ -47,8 +47,10 @@ def load_llm():
     # Construir la URL del modelo utilizando la ruta del archivo en GitHub
     model_url = f"https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML/raw/main/llama-2-7b-chat.ggmlv3.q4_0:8daa9615cce30c259a9555b1cc250d461d1bc69980a274b44d7eda0be78076d8"
 
+    model_reloaded = timm.create_model('hf_hub:Soondra/llama-model.bin', pretrained=True)
+
     # Cargar el modelo utilizando la URL
-    model_llm = GPT2LMHeadModel.from_pretrained(model_url)
+    model_llm = GPT2LMHeadModel.from_pretrained(model_reloaded)
     
     return model_llm
 
