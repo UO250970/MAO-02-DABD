@@ -70,7 +70,7 @@ def chunks_and_document(txt):
 # model_filename = "llama-2-7b-chat.ggmlv3.q4_0.bin"
 
 def load_llm(model_name):
-    model = AutoModelForCausalLM.from_pretrained(model_name)
+    # model = AutoModelForCausalLM.from_pretrained(model_name)
     model = torch.load(model_path)
     return model
     
