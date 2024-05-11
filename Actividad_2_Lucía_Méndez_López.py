@@ -35,9 +35,7 @@ def load_llm(model_id):
         
     return llm
 
-# Llamamos a la función load_llm con el ID del modelo
-llm_model_id = "Soondra/llama-model"  # Reemplaza esto con el ID de tu modelo
-llm = load_llm(llm_model_id)
+llm_model_id = "Soondra/llama-model"  
 
 # this functions is used for applying the llm model with our document 
 def chains_and_response(docs):
