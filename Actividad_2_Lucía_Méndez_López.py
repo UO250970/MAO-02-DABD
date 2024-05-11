@@ -19,7 +19,20 @@ def chunks_and_document(txt):
     docs = [Document(page_content=t) for t in texts] # convert the splitted chunks into document format
     
     return docs
-    
+
+import requests
+
+
+def query(payload, model_id, api_token):
+	headers = {"Authorization": f"Bearer {api_token}"}
+	API_URL = f"https://api-inference.huggingface.co/models/{model_id}"
+	response = requests.post(API_URL, headers=headers, json=payload)
+	return response.json()
+
+model_id = "llama-model"
+api_token = "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" # get yours at hf.co/settings/tokens
+data = query("The goal of life is [MASK].", model_id, api_token)
+
 # Loading the Llama 2's LLM
 def load_llm():
     # We instantiate the callback with a streaming stdout handler
@@ -28,7 +41,7 @@ def load_llm():
     # loading the LLM model
     # This open source model can be downloaded from here
     # Their are multiple models available just replace it in place of model and try it.
-    model_llama = pickle.load(open('saved_models/llama-model.bin', 'rb'))
+    model_llama = pickle.load(open(data, 'rb'))
     
     llm = CTransformers(
         model=model_llama,
