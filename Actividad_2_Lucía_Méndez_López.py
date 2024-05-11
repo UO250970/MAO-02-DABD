@@ -1,5 +1,6 @@
 import streamlit as st
 import pickle
+import timm
 
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.docstore.document import Document
@@ -13,6 +14,7 @@ from transformers import AutoModelForCausalLM
 
 from huggingface_hub import hf_hub_url
 from transformers import GPT2LMHeadModel
+
 
 from huggingface_hub import ModelHubMixin
 
