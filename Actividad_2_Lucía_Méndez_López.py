@@ -40,9 +40,9 @@ def chunks_and_document(txt):
         
    # return llm
 
-def load_llm(model_id):
+def load_llm(model_url):
     # Obtener la URL del modelo utilizando el ID del modelo
-    model_url = hf_hub_url(model_username, model_filename)
+    # model_url = hf_hub_url(model_username, model_filename)
     
     # Cargar el modelo utilizando la URL
     model_llm = GPT2LMHeadModel.from_pretrained(model_url)
@@ -50,16 +50,17 @@ def load_llm(model_id):
     return model_llm
 
 #llm_model_id = "Soondra/llama-model.bin"  
-llm_model_id = "TheBloke/Llama-2-7B-Chat-GGML"
+#llm_model_id = "TheBloke/Llama-2-7B-Chat-GGML"
 
 # Llamada a la función load_llm con el nombre de usuario y el nombre del archivo del modelo
-model_username = "TheBloke"  # Reemplaza esto con el nombre de usuario del autor del modelo
-model_filename = "Llama-2-7B-Chat-GGML"  # Reemplaza esto con el nombre del archivo del modelo
+model_url = "https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML/blob/main/llama-2-7b-chat.ggmlv3.q4_0.bin"
+#model_username = "TheBloke"  # Reemplaza esto con el nombre de usuario del autor del modelo
+#model_filename = "Llama-2-7B-Chat-GGML"  # Reemplaza esto con el nombre del archivo del modelo
 
 # this functions is used for applying the llm model with our document 
 def chains_and_response(docs):
     
-    llm = load_llm(llm_model_id)
+    llm = load_llm(model_url)
     chain = load_summarize_chain(llm,chain_type='map_reduce')
     
     return chain.run(docs)
