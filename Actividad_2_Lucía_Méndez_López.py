@@ -55,8 +55,11 @@ def load_llm(model_username, model_filename):
 # Llamada a la función load_llm con el nombre de usuario y el nombre del archivo del modelo
 # llm_model_id = "TheBloke/Llama-2-7B-Chat-GGML"
 # model_url = "https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML/blob/main/llama-2-7b-chat.ggmlv3.q4_0.bin"
-model_username = "TheBloke"  # Reemplaza esto con el nombre de usuario del autor del modelo
-model_filename = "Llama-2-7B-Chat-GGML"  # Reemplaza esto con el nombre del archivo del modelo
+# model_username = "TheBloke"  # Reemplaza esto con el nombre de usuario del autor del modelo
+# model_filename = "Llama-2-7B-Chat-GGML"  # Reemplaza esto con el nombre del archivo del modelo
+
+model_username = "TheBloke/Llama-2-7B-Chat-GGML"
+model_filename = "llama-2-7b-chat.ggmlv3.q4_0.bin"
 
 # this functions is used for applying the llm model with our document 
 def chains_and_response(docs):
