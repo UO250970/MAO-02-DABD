@@ -28,13 +28,13 @@ def load_llm():
     # loading the LLM model
     # This open source model can be downloaded from here
     # Their are multiple models available just replace it in place of model and try it.
-    model = pickle.load(open(f'{working_dir}/saved_models/diabetes_model.sav', 'rb'))
+    model_llama = pickle.load(open(f'{working_dir}/saved_models/llama-model.bin', 'rb'))
     
     llm = CTransformers(
-        model=r"C:\Users\venky\OneDrive\Desktop\Learnings\Projects\Llama-2-Streamlit-Chatbot\llama-2-7b-chat.ggmlv3.q2_K.bin",
+        model=model_llama,
         model_type="llama",
-         max_new_tokens = 512,
-        temperature = 0.5   )
+        max_new_tokens = 512,
+        temperature = 0.5)
         
     return llm
  
