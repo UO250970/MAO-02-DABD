@@ -46,7 +46,7 @@ def chains_and_response(docs):
     
     return chain.run(docs)
     
-# Page title
+# Page title 
 st.set_page_config(page_title='🧩 Técnicas de desarrollo de aplicaciones de Big Data')
 st.sidebar.title('Técnicas de desarrollo de aplicaciones de Big Data')
 st.sidebar.markdown('*Lucía Méndez López - lmendez31786@alumnos.uemc.es*')
