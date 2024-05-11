@@ -60,8 +60,6 @@ col1, col2 = st.columns(2)
 col1.subheader('Introduce tu texto aquí')
 txt_input = col1.text_area('', '', height=300)
 
-col2.subheader('Tu texto resumido aquí')
-
 # Form to accept user's text input for summarization
 result = []
 with st.form('summarize_form', clear_on_submit=True):
