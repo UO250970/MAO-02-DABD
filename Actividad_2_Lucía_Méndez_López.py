@@ -1,5 +1,3 @@
-pip install huggingface-hub transformers
-
 import streamlit as st
 import pickle
 
