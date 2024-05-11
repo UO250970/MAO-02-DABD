@@ -55,17 +55,16 @@ st.sidebar.markdown('*Lucía Méndez López - lmendez31786@alumnos.uemc.es*')
 st.header('🧩 Applicación para resumen de textos 🧩')
 
 col1, col2 = st.columns(2)
-
 # Text input
 txt_input = col1.text_area('Enter your text', '', height=200)
 
 # Form to accept user's text input for summarization
 result = []
-with st.form('summarize_form', clear_on_submit=True):
-    submitted = st.form_submit_button('Submit')
+with col1.form('summarize_form', clear_on_submit=True):
+    submitted = col1.form_submit_button('Submit')
     #if submitted and openai_api_key.startswith('sk-'):
     if submitted:
-        with st.spinner('Calculating...'):
+        with col1.spinner('Calculating...'):
             docs = chunks_and_document(txt_input)
             response = chains_and_response(docs)
             result.append(response)
