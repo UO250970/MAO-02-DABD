@@ -48,7 +48,7 @@ def chains_and_response(docs):
     return chain.run(docs)
     
 # Page title
-st.set_page_config(page_title='🦜🔗 Text Summarization App')
+st.set_page_config(page_title='🦜🔗 Técnicas de desarrollo de aplicaciones de Big Data')
 st.title('🦜🔗 Text Summarization App')
 
 # Text input
