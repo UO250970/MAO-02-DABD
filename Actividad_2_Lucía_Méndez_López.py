@@ -21,37 +21,6 @@ def chunks_and_document(txt):
     
     return docs
 
-import requests
-
-def query(payload, model_id, api_token):
-	headers = {"Authorization": f"Bearer {api_token}"}
-	API_URL = f"https://api-inference.huggingface.co/models/{model_id}"
-	response = requests.post(API_URL, headers=headers, json=payload)
-	return response.json()
-
-model_id = "llama-model"
-api_token = "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" # get yours at hf.co/settings/tokens
-data = query("The goal of life is [MASK].", model_id, api_token)
-
-# Loading the Llama 2's LLM
-def load_llm():
-    # We instantiate the callback with a streaming stdout handler
-    callback_manager = CallbackManager([StreamingStdOutCallbackHandler()])   
-
-    # loading the LLM model
-    # This open source model can be downloaded from here
-    # Their are multiple models available just replace it in place of model and try it.
-    model_llama = pickle.load(model_id)
-    
-    llm = CTransformers(
-        model=model_llama,
-        model_type="llama",
-        max_new_tokens = 512,
-        temperature = 0.5)
-        
-    return llm
-
-
 # Esta función carga el modelo usando el ID del modelo de la biblioteca huggingface
 def load_llm(model_id):
     # Cargamos el modelo desde la biblioteca Hugging Face
@@ -73,7 +42,7 @@ llm = load_llm(llm_model_id)
 # this functions is used for applying the llm model with our document 
 def chains_and_response(docs):
     
-    llm = load_llm()
+    llm = load_llm(llm_model_id)
     chain = load_summarize_chain(llm,chain_type='map_reduce')
     
     return chain.run(docs)
