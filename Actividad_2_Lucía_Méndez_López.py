@@ -11,8 +11,6 @@ from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 
 from transformers import AutoModelForCausalLM
 
-import replicate
-
 from huggingface_hub import hf_hub_url
 from transformers import GPT2LMHeadModel
 
