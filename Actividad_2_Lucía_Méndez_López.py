@@ -1,3 +1,5 @@
+pip install huggingface-hub transformers
+
 import streamlit as st
 import pickle
 
@@ -23,27 +25,28 @@ def chunks_and_document(txt):
     return docs
 
 # Esta función carga el modelo usando el ID del modelo de la biblioteca huggingface
-def load_llm(model_id):
+#def load_llm(model_id):
     # Cargamos el modelo desde la biblioteca Hugging Face
-    model_llama = AutoModelForCausalLM.from_pretrained(
-        model_id
-    )    
+   # model_llama = AutoModelForCausalLM.from_pretrained(
+      #  model_id
+   # )    
     # Instanciamos el modelo LLM
-    llm = CTransformers(
-        model=model_llama,
-        model_type="llama",
-        max_new_tokens=512,
-        temperature=0.5)
+   # llm = CTransformers(
+      #  model=model_llama,
+      #  model_type="llama",
+      #  max_new_tokens=512,
+      #  temperature=0.5)
         
-    return llm
+   # return llm
 
-def load_llm(model_id, model_type):
-    # Cargar el modelo LLM desde la biblioteca de Hugging Face
-    model_llama = AutoModelForCausalLM.from_pretrained(
-        model_id,
-        model_type=model_type
-    )
-    return model_llama
+def load_llm(model_id):
+    # Obtener la URL del modelo utilizando el ID del modelo
+    model_url = hf_hub_url(model_id)
+    
+    # Cargar el modelo utilizando la URL
+    model_llm = GPT2LMHeadModel.from_pretrained(model_url)
+    
+    return model_llm
 
 #llm_model_id = "Soondra/llama-model.bin"  
 llm_model_id = "TheBloke/Llama-2-7B-Chat-GGML"
