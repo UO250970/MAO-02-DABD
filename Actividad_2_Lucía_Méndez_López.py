@@ -62,7 +62,7 @@ txt_input = col1.text_area('', '', height=300)
 
 # Form to accept user's text input for summarization
 result = []
-with st.form('summarize_form', clear_on_submit=True):
+with st.form('summarize_form', clear_on_submit=False):
     submitted = st.form_submit_button('Submit')
     #if submitted and openai_api_key.startswith('sk-'):
     if submitted:
