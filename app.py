@@ -72,7 +72,8 @@ def load_llm(model_name):
      # model = torch.hub.load('huggingface/pytorch-transformers', model_name)
     return model
     
-model_name = "TheBloke/Llama-2-7B-Chat-GGML"
+# model_name = "TheBloke/Llama-2-7B-Chat-GGML"
+model_name = "google-t5/t5-small"
 
 # this functions is used for applying the llm model with our document 
 def chains_and_response(docs):
