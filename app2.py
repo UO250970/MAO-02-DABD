@@ -27,9 +27,15 @@ def chunks_and_document(txt):
 # Loading the Llama 2's LLM
 def load_llm():
     
-    model = pipeline("text-generation", model="TheBloke/CodeLlama-70B-Instruct-GGUF")
+    model_url = pipeline("text-generation", model="TheBloke/CodeLlama-70B-Instruct-GGUF")
     # model = AutoModel.from_pretrained("TheBloke/CodeLlama-70B-Instruct-GGUF")
-    return model
+    llm = CTransformers(
+        model=model_url,
+        model_type="llama",
+        max_new_tokens = 512,
+        temperature = 0.5   )
+
+    return llm
 
 # this functions is used for applying the llm model with our document 
 def chains_and_response(docs):
