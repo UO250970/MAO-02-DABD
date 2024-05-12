@@ -7,13 +7,25 @@ def load_llm(model_name):
     summarizer = pipeline("summarization", model=model_name)
     
     return summarizer
-   
+
+def submit():
+
+    with st.spinner('Transformando 🤘'):
+            summarizer = load_llm(model_name)
+            response = summarizer(txt_input, max_length=300, min_length=30, do_sample=True)
+            resumen = response[0]['summary_text']
+            result.append(resumen)
+    
 model_name = "Falconsai/text_summarization"
 
 # Page title 
 st.set_page_config(page_title='🧩 Técnicas de desarrollo de aplicaciones de Big Data')
 st.sidebar.title('Técnicas de desarrollo de aplicaciones de Big Data')
 st.sidebar.markdown('*Lucía Méndez López - lmendez31786@alumnos.uemc.es*')
+
+st.sidebar.divider()
+
+st.sidebar.markdown('Textos de referencia para resumir')
 
 st.header('🧩 Applicación para resumen de textos 🧩')
 
@@ -29,11 +41,7 @@ with st.form('summarize_form', clear_on_submit=False):
     submitted = st.form_submit_button('Submit')
     #if submitted and openai_api_key.startswith('sk-'):
     if submitted:
-        with st.spinner('Transformando 🤘'):
-            summarizer = load_llm(model_name)
-            response = summarizer(txt_input, max_length=300, min_length=30, do_sample=True)
-            resumen = response[0]['summary_text']
-            result.append(resumen)
+        submit()
 
 if len(result):
     col2.subheader('Tu texto resumido aquí')
