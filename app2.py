@@ -36,7 +36,8 @@ def load_llm():
         temperature = 0.5   )
     
     llm = pipeline("summarization", model="TheBloke/CodeLlama-70B-Python-GGUF")    
-    return llm
+    pipe = pipeline("text-generation", model="TheBloke/CodeLlama-70B-Python-GGUF")
+    return pipe
  
 # this functions is used for applying the llm model with our document 
 def chains_and_response(docs):
