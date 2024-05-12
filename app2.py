@@ -1,5 +1,6 @@
-
 import streamlit as st
+import os
+
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.docstore.document import Document
 from langchain.chains.summarize import load_summarize_chain
