@@ -27,8 +27,9 @@ def chunks_and_document(txt):
 # Loading the Llama 2's LLM
 def load_llm():
     
-    pipe = AutoModel.from_pretrained("TheBloke/CodeLlama-70B-Python-GGUF")
-    return pipe
+    # pipe = AutoModel.from_pretrained("TheBloke/CodeLlama-70B-Python-GGUF")
+    model = AutoModel.from_pretrained("TheBloke/CodeLlama-70B-Instruct-GGUF")
+    return model
 
 # this functions is used for applying the llm model with our document 
 def chains_and_response(docs):
