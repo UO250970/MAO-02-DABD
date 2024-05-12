@@ -9,7 +9,7 @@ from langchain.callbacks.manager import CallbackManager
 from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 
 
-from transformers import pipeline
+from transformers import pipeline, AutoModel
 
 
 # this function is responsible for splitting the data into smaller chunks and convert the data in document format
@@ -36,7 +36,7 @@ def load_llm():
         temperature = 0.5   )
     
     llm = pipeline("summarization", model="TheBloke/CodeLlama-70B-Python-GGUF")    
-    pipe = pipeline("text-generation", model="TheBloke/CodeLlama-70B-Python-GGUF")
+    pipe = AutoModel.from_pretrained("TheBloke/CodeLlama-70B-Python-GGUF")
     return pipe
  
 # this functions is used for applying the llm model with our document 
