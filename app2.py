@@ -32,7 +32,8 @@ def load_llm():
         model_type="llama",
          max_new_tokens = 512,
         temperature = 0.5   )
-        
+    
+    llm = pipeline("summarization", model="TheBloke/CodeLlama-70B-Python-GGUF")    
     return llm
  
 # this functions is used for applying the llm model with our document 
