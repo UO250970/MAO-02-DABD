@@ -4,5 +4,4 @@
 
 ## Actividad 2 - Desarrollo de aplicación que permite resumir textos.
 
-Aplicación con streamlit que permite resumir un texto introducido. Basado en https://medium.com/@venkiperfect/text-summarization-using-langchain-with-lmm-
-streamlit-python-7264ef4cebef
+Aplicación con streamlit que permite resumir un texto introducido. Basado en https://medium.com/@venkiperfect/text-summarization-using-langchain-with-lmm-streamlit-python-7264ef4cebef
