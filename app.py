@@ -1,7 +1,4 @@
 import streamlit as st
-# import pickle
-# import timm
-import torch
 
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.docstore.document import Document
@@ -12,12 +9,7 @@ from langchain.callbacks.manager import CallbackManager
 from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 
 from transformers import AutoModelForCausalLM
-
-# from huggingface_hub import hf_hub_url
-# from transformers import GPT2LMHeadModel
-
-
-# from huggingface_hub import ModelHubMixin
+from transformers import AutoModel
 
 # this function is responsible for splitting the data into smaller chunks and convert the data in document format
 def chunks_and_document(txt):
@@ -69,15 +61,19 @@ def chunks_and_document(txt):
 # model_username = "TheBloke/Llama-2-7B-Chat-GGML"
 # model_filename = "llama-2-7b-chat.ggmlv3.q4_0.bin"
 
+
+# Load model directly
+
+
 def load_llm(model_name):
     # model = AutoModelForCausalLM.from_pretrained(model_name)
     # model = torch.load(model_name)
-    model = torch.hub.load('huggingface/pytorch-transformers', model_name)
+    model = AutoModel.from_pretrained(model_name)
+     # model = torch.hub.load('huggingface/pytorch-transformers', model_name)
     return model
     
-# model_path = "saved_models/llama-model.gzip"
-# model_name = "https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML/tree/main/llama-2-7b-chat.ggmlv3.q4_1.bin"
 model_name = "TheBloke/Llama-2-7B-Chat-GGML"
+
 # this functions is used for applying the llm model with our document 
 def chains_and_response(docs):
     
