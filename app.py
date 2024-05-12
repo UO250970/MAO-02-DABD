@@ -29,12 +29,9 @@ st.sidebar.markdown('*Lucía Méndez López - lmendez31786@alumnos.uemc.es*')
 
 st.sidebar.divider()
 
-st.sidebar.markdown('Textos de referencia para resumir')
 option = st.sidebar.selectbox(
     "Textos de referencia para resumir",
     ("", "A Study in Scarlet", "Twenty Thousand Leagues under the Sea"))
-
-txt_input = texts[option]
 
 st.header('🧩 Applicación para resumen de textos 🧩')
 
@@ -42,7 +39,7 @@ col1, col2 = st.columns(2)
 
 # Text input
 col1.subheader('Introduce tu texto aquí')
-txt_input = col1.text_area('', '', height=400)
+txt_input = col1.text_area('', texts[option], height=400)
 
 # Form to accept user's text input for summarization
 result = []
