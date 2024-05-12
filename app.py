@@ -76,7 +76,7 @@ with st.form('summarize_form', clear_on_submit=False):
     submitted = st.form_submit_button('Submit')
     #if submitted and openai_api_key.startswith('sk-'):
     if submitted:
-        with st.spinner('Calculating...'):
+        with st.spinner('Transformando 🤘'):
             #docs = chunks_and_document(txt_input)
             #response = chains_and_response(docs)
             #response = summarization_pipeline(txt_input)
