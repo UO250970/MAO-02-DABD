@@ -28,8 +28,8 @@ with st.form('summarize_form', clear_on_submit=False):
     #if submitted and openai_api_key.startswith('sk-'):
     if submitted:
         with st.spinner('Transformando 🤘'):
-            summarizer = load_llm()
-            response = summarizer(txt_input, max_length=200, min_length=30, do_sample=False)
+            summarizer = load_llm(model_name)
+            response = summarizer(txt_input, max_length=300, min_length=30, do_sample=True)
             resumen = response[0]['summary_text']
             result.append(resumen)
 
