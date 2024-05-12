@@ -26,7 +26,7 @@ st.sidebar.divider()
 
 option = st.sidebar.selectbox(
     "Textos de referencia para resumir",
-    ("", "A Study in Scarlet", "Twenty Thousand Leagues under the Sea"))
+    (texts.keys()))
 
 st.header('🧩 Applicación para resumen de textos 🧩')
 
