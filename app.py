@@ -1,5 +1,7 @@
 import streamlit as st
 
+from transformers import pipeline
+
 def load_llm(model_name):
     
     summarizer = pipeline("summarization", model=model_name)
