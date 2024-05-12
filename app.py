@@ -82,9 +82,9 @@ with st.form('summarize_form', clear_on_submit=False):
             #response = summarization_pipeline(txt_input)
             summarizer = load_llm()
             response = summarizer(txt_input, max_length=200, min_length=30, do_sample=False)
-            resumen = response[0]['summary_text'].replace("[", "").replace("]", "")
+            resumen = response[0]['summary_text']
             result.append(resumen)
 
 if len(result):
     col2.subheader('Tu texto resumido aquí')
-    col2.info(result)
+    col2.info(result[0])
