@@ -26,7 +26,9 @@ def load_llm():
     # model = AutoModelForCausalLM.from_pretrained(model_name)
     # model = torch.load(model_name)
     model = AutoModel.from_pretrained(model_name)
-    summarizer = pipeline("summarization", model="Falconsai/text_summarization")
+    # summarizer = pipeline("summarization", model="Falconsai/text_summarization")
+    summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
+    
      # model = torch.hub.load('huggingface/pytorch-transformers', model_name)
     return summarizer
     
