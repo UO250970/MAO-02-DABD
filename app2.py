@@ -11,6 +11,8 @@ from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 
 from transformers import pipeline, AutoModel
 
+# Configura el token de API como una variable de entorno
+os.environ["TRANSFORMERS_TOKEN"] = "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"
 
 # this function is responsible for splitting the data into smaller chunks and convert the data in document format
 def chunks_and_document(txt):
@@ -26,7 +28,7 @@ def load_llm():
     
     pipe = AutoModel.from_pretrained("TheBloke/CodeLlama-70B-Python-GGUF")
     return pipe
- 
+
 # this functions is used for applying the llm model with our document 
 def chains_and_response(docs):
     
