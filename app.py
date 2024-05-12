@@ -20,51 +20,6 @@ def chunks_and_document(txt):
     
     return docs
 
-# Esta función carga el modelo usando el ID del modelo de la biblioteca huggingface
-#def load_llm(model_id):
-    # Cargamos el modelo desde la biblioteca Hugging Face
-   # model_llama = AutoModelForCausalLM.from_pretrained(
-      #  model_id
-   # )    
-    # Instanciamos el modelo LLM
-   # llm = CTransformers(
-      #  model=model_llama,
-      #  model_type="llama",
-      #  max_new_tokens=512,
-      #  temperature=0.5)
-        
-   # return llm
-
-# def load_llm():
-    # Obtener la URL del modelo utilizando el ID del modelo
-    # model_url = hf_hub_url(model_username, model_filename)
-    
-    # Construir la URL del modelo utilizando la ruta del archivo en GitHub
-   #  model_url = f"https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML/raw/main/llama-2-7b-chat.ggmlv3.q4_0:8daa9615cce30c259a9555b1cc250d461d1bc69980a274b44d7eda0be78076d8"
-
-   #  model_reloaded = timm.create_model('hf_hub:Soondra/llama-model.bin', pretrained=True)
-
-    # Cargar el modelo utilizando la URL
-   #  model_llm = GPT2LMHeadModel.from_pretrained(model_reloaded)
-    
-   #  return model_llm
-
-#llm_model_id = "Soondra/llama-model.bin"  
-#llm_model_id = "TheBloke/Llama-2-7B-Chat-GGML"
-
-# Llamada a la función load_llm con el nombre de usuario y el nombre del archivo del modelo
-# llm_model_id = "TheBloke/Llama-2-7B-Chat-GGML"
-# model_url = "https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML/blob/main/llama-2-7b-chat.ggmlv3.q4_0.bin"
-# model_username = "TheBloke"  # Reemplaza esto con el nombre de usuario del autor del modelo
-# model_filename = "Llama-2-7B-Chat-GGML"  # Reemplaza esto con el nombre del archivo del modelo
-
-# model_username = "TheBloke/Llama-2-7B-Chat-GGML"
-# model_filename = "llama-2-7b-chat.ggmlv3.q4_0.bin"
-
-
-# Load model directly
-
-
 def load_llm(model_name):
     # model = AutoModelForCausalLM.from_pretrained(model_name)
     # model = torch.load(model_name)
