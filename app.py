@@ -78,6 +78,7 @@ with st.form('summarize_form', clear_on_submit=False):
             #docs = chunks_and_document(txt_input)
             #response = chains_and_response(docs)
             #response = summarization_pipeline(txt_input)
+            summarizer = load_llm()
             response = summarizer(txt_input, max_length=1000, min_length=30, do_sample=False)
             result.append(response)
 
