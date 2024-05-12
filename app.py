@@ -26,8 +26,8 @@ def load_llm():
     # model = AutoModelForCausalLM.from_pretrained(model_name)
     # model = torch.load(model_name)
     model = AutoModel.from_pretrained(model_name)
-    # summarizer = pipeline("summarization", model="Falconsai/text_summarization")
-    summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
+    summarizer = pipeline("summarization", model="Falconsai/text_summarization")
+    # summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
     
      # model = torch.hub.load('huggingface/pytorch-transformers', model_name)
     return summarizer
@@ -81,7 +81,7 @@ with st.form('summarize_form', clear_on_submit=False):
             #response = chains_and_response(docs)
             #response = summarization_pipeline(txt_input)
             summarizer = load_llm()
-            response = summarizer(txt_input, max_length=200, min_length=30, do_sample=False)
+            response = summarizer(txt_input, max_length=200, min_length=30, do_sample=False).summary_text
             result.append(response)
 
 if len(result):
