@@ -87,4 +87,4 @@ with st.form('summarize_form', clear_on_submit=False):
 
 if len(result):
     col2.subheader('Tu texto resumido aquí')
-    col2.info(response)
+    col2.info(result)
