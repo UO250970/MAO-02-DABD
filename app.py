@@ -21,7 +21,7 @@ col1, col2 = st.columns(2)
 
 # Text input
 col1.subheader('Introduce tu texto aquí')
-txt_input = col1.text_area('', '', height=300)
+txt_input = col1.text_area('', '', height=400)
 
 # Form to accept user's text input for summarization
 result = []
