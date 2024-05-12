@@ -81,13 +81,8 @@ with st.form('summarize_form', clear_on_submit=False):
             #response = chains_and_response(docs)
             #response = summarization_pipeline(txt_input)
             summarizer = load_llm()
-            response = summarizer(txt_input, max_length=200, min_length=30, do_sample=False)[0]
-            # Obtener el texto del resumen sin la clave 'summary_text' y sin los corchetes
-            resumen_lista = response['summary_text']
-            
-            # Unir las palabras del resumen para formar una cadena de texto
-            resumen = ' '.join(resumen_lista)
-            result.append(resumen)
+            response = summarizer(txt_input, max_length=200, min_length=30, do_sample=False)
+            result.append(response)
 
 if len(result):
     col2.subheader('Tu texto resumido aquí')
