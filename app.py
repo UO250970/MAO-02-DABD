@@ -10,7 +10,7 @@ def load_llm(model_name):
 
 def submit():
 
-    with st.spinner('Transformando 🤘'):
+    with st.sidebar.spinner('Transformando 🤘'):
             summarizer = load_llm(model_name)
             response = summarizer(txt_input, max_length=300, min_length=30, do_sample=True)
             resumen = response[0]['summary_text']
